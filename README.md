@@ -11,7 +11,7 @@ The system automatically computes the **patient risk level** (Low, Moderate, Hig
 ---
 
 ## 🚀 Architecture
-
+![Architecture](images/architecture.png)
 The pipeline follows a fully automated, cloud-native architecture based on **GCP**.
 
 ### **1. Data Generation**
@@ -19,8 +19,8 @@ The pipeline follows a fully automated, cloud-native architecture based on **GCP
 - Data streamed to **Google Pub/Sub**
 
 ### **2. Dataflow Streaming Pipeline (Apache Beam)**
+![medaillon](images/dataflow.png)
 Implements a **Medallion Architecture**:
-
 | Layer | Description | Storage |
 |-------|-------------|----------|
 | 🟤 **Bronze** | Raw JSON data from Pub/Sub | GCS |
@@ -28,6 +28,7 @@ Implements a **Medallion Architecture**:
 | 🟡 **Gold** | Fully transformed analytics-ready data | BigQuery |
 
 ### **3. Storage**
+![medaillon](images/2.png)
 - Bronze & Silver → **Google Cloud Storage**
 - Gold → **BigQuery**
 
